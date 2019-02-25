@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<section id="services">
+        
+                <div class="container text-center testimonial_area">
+                    <h2>Major Reviews</h2>
+                    <a href="{% url 'majors:create' %} " class="btn know_btn">New post</a>
+                    
+                </div>        <br>
+                {% for major in major_list %}
+                    <div class="col-md-4">
+                        <div class="service_item">
+                            <h3>{{major.major_id}}</h3>
+                            <p>{{major.major_intro}}</p>
+                            <a href="{% url 'majors:detail' pk=major.pk %}" class="btn know_btn">see more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</section>
+                            
+
+        
+    {% endfor %}
+    <br>
+    
+    <!--{% if user.is_authenticated %}-->
+    <!--{% endif %}-->
+{% endblock %}
